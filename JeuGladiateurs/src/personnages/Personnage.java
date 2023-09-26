@@ -131,8 +131,8 @@ if (personnageCible.PointDeVie < 0) {
            personnageCible.PointDeVie =0;
         }
 
-System.out.println("Bob le malchanceux attaque avec une puissance de :" + valeurDeFrappe);
-System.out.println("Igor l'empaleur a une defense de :" + personnageCible.ValeurDefense);
+System.out.println( getNom() + "attaque avec une puissance de :" + valeurDeFrappe);
+System.out.println(personnageCible.getNom() + " a une defense de :" + personnageCible.ValeurDefense);
 System.out.println("Les dommages sont donc de :" + dommage);
     }
    

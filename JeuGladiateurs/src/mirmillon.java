@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
+package mirmillon;
 import java.util.Random;
 import personnages.Personnage;
 /**
@@ -41,25 +41,27 @@ public class mirmillon extends Personnage {
 
     @Override
     public void frapperPersonnage(Personnage personnageCible) {
-         // TODO : Récupérer la valeur d'attaque pour ce tour, calculer les dégats  
+        
         int valeurDeFrappe = 0;
         int defPerso = 0;
         int dommage =0;
         
-         for(int i = 0;i <=2; i++){
-             if (personnageCible.getPointDeVie() <= 0 ) {
-                 System.out.println("Igor le rétiaire empale son adversaire");
-                 break;
+         for(int i = 0;i != 2; i++){   
+             
+             if (i != 0) {
+                 System.out.println("Vous attaquez de nouveau");
              }
+             
             valeurDeFrappe = super.attaqueCalcul();
             defPerso = personnageCible.getValeurDefense();
             dommage= valeurDeFrappe - defPerso;
-            //modifier les points de vie du personnage cible, afficher les détails
+            
             if (dommage < 0) {
                 dommage = 0;
             }
-            personnageCible.setPointDeVie(personnageCible.getPointDeVie() - dommage)    ;
-            // sur l'attaque, tel que montré dans l'énoncé.
+            
+            personnageCible.setPointDeVie(personnageCible.getPointDeVie() - dommage);
+             
             if (personnageCible.getPointDeVie() < 0) {
                personnageCible.setPointDeVie(0);
             }
@@ -68,7 +70,12 @@ public class mirmillon extends Personnage {
             System.out.println("Igor l'empaleur a une defense de :" + personnageCible.getValeurDefense());
             System.out.println("Les dommages sont donc de :" + dommage);
 
-            super.frapperPersonnage(personnageCible); 
+            if (personnageCible.getPointDeVie() <= 0 ) {
+                 System.out.println(super.getNom()+" empale son adversaire");
+                 break; 
+            } 
+            
+            System.out.println("\n");
          }
        
     }
